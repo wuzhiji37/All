@@ -1,0 +1,87 @@
+//
+//  ClassViewController.m
+//  all
+//
+//  Created by 吴智极 on 16/2/18.
+//  Copyright © 2016年 吴智极. All rights reserved.
+//
+
+#import "ClassViewController.h"
+
+#import "ClassViewController_UILabel.h"
+@implementation ClassViewController {
+    NSArray *classArray;
+}
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        classArray = [[NSArray alloc] initWithObjects:
+                      @"UILabel",
+                      @"UIButton",
+                      @"UISegmentedControl",
+                      @"UITextField",
+                      @"UISlider",
+                      @"UISwitch",
+                      @"UIActivityIndicatorView",
+                      @"UIProgressView",
+                      @"UIPageControl",
+                      @"UIStepper",
+                      @"UIPageControl",
+                      @"UIStackView",
+                      @"UITableView",
+                      @"UITableViewCell",
+                      @"UIImageView",
+                      @"UICollectionView",
+                      @"UICollectionViewCell",
+                      @"UICollectionReusableView",
+                      @"UITextView",
+                      @"UIScrollView",
+                      @"UIDatePicker",
+                      @"UIPickerView",
+                      @"MapKit",
+                      @"GLKit",
+                      @"iAd",
+                      @"SceneKit",
+                      @"UIWebView",
+                      @"UISearchBar",
+                      nil];
+    }
+    return self;
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    WS;
+    NSLog(@"ver = %@",@(IOS_VERSION));
+    _classTV = [[UITableView alloc] init];
+    _classTV.backgroundColor = [UIColor whiteColor];
+    _classTV.delegate = self;
+    _classTV.dataSource = self;
+    [self.view addSubview:_classTV];
+    [_classTV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(weakself.view).insets(UIEdgeInsetsMake(Bar_HEIGHT, 0, -TabBar_HEIGHT, 0));
+    }];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return classArray.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *cellID = @"ClassTableViewCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    cell.textLabel.text = [classArray objectAtIndex:indexPath.row];
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //NSString -> Class
+    Class vcClass = NSClassFromString([NSString stringWithFormat:@"ClassViewController_%@",[classArray objectAtIndex:indexPath.row]]);
+    id vc = [[vcClass alloc] init];
+    if (!vc) {
+        NSLog(@"%@",NSStringFromClass(vcClass));
+        return;
+    }
+    [self.navigationController pushViewController:vc animated:YES];
+}
+@end

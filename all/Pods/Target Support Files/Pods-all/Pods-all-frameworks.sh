@@ -82,3 +82,24 @@ strip_invalid_archs() {
   fi
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-all/AFNetworking.framework"
+  install_framework "Pods-all/GPUImage.framework"
+  install_framework "Pods-all/GVUserDefaults.framework"
+  install_framework "Pods-all/MBProgressHUD.framework"
+  install_framework "Pods-all/Masonry.framework"
+  install_framework "Pods-all/ReactiveCocoa.framework"
+  install_framework "Pods-all/Result.framework"
+  install_framework "Pods-all/SDWebImage.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-all/AFNetworking.framework"
+  install_framework "Pods-all/GPUImage.framework"
+  install_framework "Pods-all/GVUserDefaults.framework"
+  install_framework "Pods-all/MBProgressHUD.framework"
+  install_framework "Pods-all/Masonry.framework"
+  install_framework "Pods-all/ReactiveCocoa.framework"
+  install_framework "Pods-all/Result.framework"
+  install_framework "Pods-all/SDWebImage.framework"
+fi

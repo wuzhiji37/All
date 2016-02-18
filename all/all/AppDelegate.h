@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
+#import "ClassNavigationController.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
-
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (strong, nonatomic          ) UIWindow                     *window;
+@property (strong, nonatomic          ) UITabBarController           *tbc;
+@property (strong, nonatomic          ) ClassNavigationController    *classNVC;
+@property (readonly, strong, nonatomic) NSManagedObjectContext       *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel         *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 - (void)saveContext;

@@ -1,5 +1,14 @@
-platform :ios, '7.0'
+platform :ios, '8.0'
+use_frameworks!
+
 target 'all' do
     pod "AFNetworking", "~> 2.0"
     pod "Masonry"
+    pod "ReactiveCocoa"
+    pod "SDWebImage"
+    pod "GPUImage"
+    pod "MBProgressHUD"
+    pod "GVUserDefaults"
+    
 end
+
