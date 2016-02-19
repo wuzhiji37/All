@@ -15,8 +15,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        classArray = [[NSArray alloc] initWithObjects:
-                      @"UILabel",
+        classArray = @[@"UILabel",
                       @"UIButton",
                       @"UISegmentedControl",
                       @"UITextField",
@@ -43,8 +42,7 @@
                       @"iAd",
                       @"SceneKit",
                       @"UIWebView",
-                      @"UISearchBar",
-                      nil];
+                      @"UISearchBar"];
     }
     return self;
 }
@@ -79,9 +77,10 @@
     Class vcClass = NSClassFromString([NSString stringWithFormat:@"ClassViewController_%@",[classArray objectAtIndex:indexPath.row]]);
     id vc = [[vcClass alloc] init];
     if (!vc) {
-        NSLog(@"%@",NSStringFromClass(vcClass));
+        NSLog(@"No VC %@",[classArray objectAtIndex:indexPath.row]);
         return;
     }
     [self.navigationController pushViewController:vc animated:YES];
 }
+
 @end

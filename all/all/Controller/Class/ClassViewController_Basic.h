@@ -9,5 +9,7 @@
 #import "BasicViewController.h"
 
 @interface ClassViewController_Basic : BasicViewController
-@property (nonatomic, strong) UIView *mainView;
+@property (nonatomic, strong) UIView      *objView;
+@property (nonatomic, strong) UICollectionView *objCV;
+@property (nonatomic, strong) NSArray     *objArray;
 @end

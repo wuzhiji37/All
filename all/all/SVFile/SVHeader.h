@@ -26,8 +26,12 @@
 #define TabBar_HEIGHT    49
 #define TabBarIcon       30
 
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
-#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+#define SCREEN_WIDTH    ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT   ([UIScreen mainScreen].bounds.size.height)
 
-#define USER_DEFAULT [NSUserDefaults standardUserDefaults]
+#define USER_DEFAULT    [NSUserDefaults standardUserDefaults]
+
+
+
+#define FONT(n)         [UIFont systemFontOfSize:(n)]
 #endif /* SVHeader_h */

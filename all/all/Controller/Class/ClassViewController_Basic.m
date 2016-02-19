@@ -23,11 +23,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     WS;
-    _mainView = [[UIView alloc] init];
-    [self.view addSubview:_mainView];
-    _mainView.backgroundColor = [UIColor lightGrayColor];
-    [_mainView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(weakself.view).insets(UIEdgeInsetsMake(100, 20, 100, 20));
+    self.objView = [[UIView alloc] init];
+    [self.view addSubview:self.objView];
+    self.objView.backgroundColor = [UIColor lightGrayColor];
+    [self.objView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakself.view.mas_top).offset(Bar_HEIGHT+10);
+        make.left.equalTo(weakself.view.mas_left).offset(10);
+        make.right.equalTo(weakself.view.mas_right).offset(-10);
+        make.height.equalTo(@100);
+    }];
+    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    
+    self.objCV = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+    [self.view addSubview:self.objCV];
+    
+    self.objCV.backgroundColor = [UIColor lightGrayColor];
+    [self.objCV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.objView.mas_bottom).offset(10);
+        make.left.equalTo(weakself.view.mas_left).offset(10);
+        make.right.equalTo(weakself.view.mas_right).offset(-10);
+        make.bottom.equalTo(weakself.view.mas_bottom).offset(-10);
     }];
 }
 @end
