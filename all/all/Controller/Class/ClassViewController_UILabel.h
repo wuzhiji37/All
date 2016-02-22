@@ -8,6 +8,6 @@
 
 #import "ClassViewController_Basic.h"
 
-@interface ClassViewController_UILabel :ClassViewController_Basic <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
+@interface ClassViewController_UILabel :ClassViewController_Basic <UITableViewDelegate, UITableViewDataSource>
 
 @end

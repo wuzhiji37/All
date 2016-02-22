@@ -32,14 +32,12 @@
         make.right.equalTo(weakself.view.mas_right).offset(-10);
         make.height.equalTo(@100);
     }];
-    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     
-    self.objCV = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-    [self.view addSubview:self.objCV];
+    self.objTV = [[UITableView alloc] init];
+    [self.view addSubview:self.objTV];
     
-    self.objCV.backgroundColor = [UIColor lightGrayColor];
-    [self.objCV mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.objTV.backgroundColor = [UIColor lightGrayColor];
+    [self.objTV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.objView.mas_bottom).offset(10);
         make.left.equalTo(weakself.view.mas_left).offset(10);
         make.right.equalTo(weakself.view.mas_right).offset(-10);

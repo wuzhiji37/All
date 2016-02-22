@@ -7,7 +7,7 @@
 //
 
 #import "ClassViewController_UILabel.h"
-#define CollectionCellID @"UICollectionViewCell_UILabel"
+#import "ClassTableViewCell_Basic.h"
 @interface ClassViewController_UILabel ()
 {
     UILabel *_label;
@@ -18,8 +18,138 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.objArray = @[@"text",
+    self.objArray = @[@{@"name":@"text",
+                        @"valueName":@[@"text1",
+                                       @"text2",
+                                       @"text3",
+                                       @"text4"],
+                        @"value":@[@"text1",
+                                   @"text2text2text2text2text2text2text2",
+                                   @"text3\ntext3\ntext3\ntext3\ntext3\ntext3",
+                                   @"text4 text4 text4 text4 text4 text4"]},
+                      @{@"name":@"font",
+                        @"valueName":@[@"15",
+                                       @"25",
+                                       @"35"],
+                        @"value":@[FONT(15),
+                                   FONT(25),
+                                   FONT(35)]},
+                      @{@"name":@"textColor",
+                        @"valueName":@[@"black",
+                                       @"red",
+                                       @"green",
+                                       @"blue"],
+                        @"value":@[[UIColor blackColor],
+                                   [UIColor redColor],
+                                   [UIColor greenColor],
+                                   [UIColor blueColor]]},
+                      @{@"name":@"shadowColor",
+                        @"valueName":@[@"black",
+                                       @"red",
+                                       @"green",
+                                       @"blue"],
+                        @"value":@[[UIColor blackColor],
+                                   [UIColor redColor],
+                                   [UIColor greenColor],
+                                   [UIColor blueColor]]},
+                      @{@"name":@"shadowOffset",
+                        @"valueName":@[@"(0,0)",
+                                       @"(5,5)",
+                                       @"(10,10)",
+                                       @"(-5,-5)"],
+                        @"value":@[[NSValue valueWithCGSize:CGSizeMake(0, 0)],
+                                   [NSValue valueWithCGSize:CGSizeMake(5, 5)],
+                                   [NSValue valueWithCGSize:CGSizeMake(10, 10)],
+                                   [NSValue valueWithCGSize:CGSizeMake(-5, -5)]]},
+                      @{@"name":@"textAlignment",
+                        @"valueName":@[@"NSTextAlignmentLeft",
+                                       @"NSTextAlignmentCenter",
+                                       @"NSTextAlignmentRight",
+                                       @"NSTextAlignmentJustified",
+                                       @"NSTextAlignmentNatural"],
+                        @"value":@[@(NSTextAlignmentLeft),
+                                   @(NSTextAlignmentCenter),
+                                   @(NSTextAlignmentRight),
+                                   @(NSTextAlignmentJustified),
+                                   @(NSTextAlignmentNatural)]},
+                      
+                      @{@"name":@"lineBreakMode",
+                        @"valueName":@[@"NSLineBreakByWordWrapping",
+                                       @"NSLineBreakByCharWrapping",
+                                       @"NSLineBreakByClipping",
+                                       @"NSLineBreakByTruncatingHead",
+                                       @"NSLineBreakByTruncatingTail",
+                                       @"NSLineBreakByTruncatingMiddle"],
+                        @"value":@[@(NSLineBreakByWordWrapping),
+                                   @(NSLineBreakByCharWrapping),
+                                   @(NSLineBreakByClipping),
+                                   @(NSLineBreakByTruncatingHead),
+                                   @(NSLineBreakByTruncatingTail),
+                                   @(NSLineBreakByTruncatingMiddle)]},
+                      @{@"name":@"attributedText",
+                        @"valueName":@[@"nil",
+                                       @"AttributedString"],
+                        @"value":@[[[NSAttributedString alloc] init],
+                                   [[NSAttributedString alloc] initWithString:@"1234567890" attributes:@{NSFontAttributeName: [UIFont italicSystemFontOfSize:20]}]]},
+                      @{@"name":@"highlightedTextColor",
+                        @"valueName":@[@"black",
+                                       @"red",
+                                       @"green",
+                                       @"blue"],
+                        @"value":@[[[UIColor blackColor] colorWithAlphaComponent:0.5],
+                                   [[UIColor redColor] colorWithAlphaComponent:0.5],
+                                   [[UIColor greenColor] colorWithAlphaComponent:0.5],
+                                   [[UIColor blueColor] colorWithAlphaComponent:0.5]]},
+                      @{@"name":@"highlighted",
+                        @"valueName":@[@"NO",
+                                       @"YES"],
+                        @"value":@[[NSNumber numberWithBool:NO],
+                                   [NSNumber numberWithBool:YES]]},
+                      @{@"name":@"userInteractionEnabled",
+                        @"valueName":@[@"NO",
+                                       @"YES"],
+                        @"value":@[[NSNumber numberWithBool:NO],
+                                   [NSNumber numberWithBool:YES]]},
+                      @{@"name":@"enabled",
+                        @"valueName":@[@"NO",
+                                       @"YES"],
+                        @"value":@[[NSNumber numberWithBool:NO],
+                                   [NSNumber numberWithBool:YES]]},
+                      @{@"name":@"numberOfLines",
+                        @"valueName":@[@"0",
+                                       @"1",
+                                       @"2",
+                                       @"3"],
+                        @"value":@[[NSNumber numberWithInteger:0],
+                                   [NSNumber numberWithInteger:1],
+                                   [NSNumber numberWithInteger:2],
+                                   [NSNumber numberWithInteger:3]]},
+                      @{@"name":@"adjustsFontSizeToFitWidth",
+                        @"valueName":@[@"NO",
+                                       @"YES"],
+                        @"value":@[[NSNumber numberWithBool:NO],
+                                   [NSNumber numberWithBool:YES]]},
+                      @{@"name":@"baselineAdjustment",
+                        @"valueName":@[@"UIBaselineAdjustmentAlignBaselines",
+                                       @"UIBaselineAdjustmentAlignCenters",
+                                       @"UIBaselineAdjustmentNone"],
+                        @"value":@[@(UIBaselineAdjustmentAlignBaselines),
+                                   @(UIBaselineAdjustmentAlignCenters),
+                                   @(UIBaselineAdjustmentNone)]},
+                      @{@"name":@"minimumScaleFactor",
+                        @"valueName":@[@"0.0",
+                                       @"0.8",
+                                       @"0.3"],
+                        @"value":@[[NSNumber numberWithDouble:0.0],
+                                   [NSNumber numberWithDouble:0.8],
+                                   [NSNumber numberWithDouble:0.3]]},
+                      @{@"name":@"allowsDefaultTighteningForTruncation",
+                        @"valueName":@[@"NO",
+                                       @"YES"],
+                        @"value":@[[NSNumber numberWithBool:NO],
+                                   [NSNumber numberWithBool:YES]]},
                       ];
+    
     _label = [[UILabel alloc] init];
     [self.objView addSubview:_label];
     _label.backgroundColor = [UIColor whiteColor];
@@ -27,74 +157,37 @@
         make.edges.equalTo(self.objView).insets(UIEdgeInsetsMake(10, 10, 10, 10));
     }];
     
-    self.objCV.dataSource = self;
-    self.objCV.delegate = self;
-    //注册Cell，必须要有
-    [self.objCV registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CollectionCellID];
+    self.objTV.delegate = self;
+    self.objTV.dataSource = self;
 };
-#pragma mark -- UICollectionViewDataSource
 
-//定义展示的UICollectionViewCell的个数
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return 10;
+#pragma mark - UITableView
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.objArray.count;
 }
-
-//定义展示的Section的个数
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 2;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50;
 }
-
-//每个UICollectionView展示的内容
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CollectionCellID forIndexPath:indexPath];
-    
-    cell.backgroundColor = [UIColor colorWithRed:((10 * indexPath.row) / 255.0) green:((20 * indexPath.row)/255.0) blue:((30 * indexPath.row)/255.0) alpha:1.0f];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-    label.textColor = [UIColor redColor];
-    label.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
-    
-    for (id subView in cell.contentView.subviews) {
-        [subView removeFromSuperview];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *cellId = [@"ClassTableViewCell_UILabel" stringByAppendingFormat:@"%ld",(long)indexPath.row];
+    ClassTableViewCell_Basic *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (!cell) {
+        cell = [[ClassTableViewCell_Basic alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId size:CGSizeMake(WIDTH(tableView), 50)];
     }
-    [cell.contentView addSubview:label];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    NSDictionary *dic = [self.objArray objectAtIndex:indexPath.row];
+    cell.propertyLabel.text = [dic objectForKey:@"name"];
+    cell.valueNameArray = [dic objectForKey:@"valueName"];
+    cell.valueArray = [dic objectForKey:@"value"];
+    cell.valueLabel.text = [cell.valueNameArray objectAtIndex:cell.valueNumber];
     return cell;
 }
-
-#pragma mark --UICollectionViewDelegateFlowLayout
-
-//定义每个Item 的大小
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return CGSizeMake(60, 60);
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ClassTableViewCell_Basic *cell = (ClassTableViewCell_Basic *)[tableView cellForRowAtIndexPath:indexPath];
+    cell.valueNumber = (cell.valueNumber+1)%cell.valueArray.count;
+    cell.valueLabel.text = [cell.valueNameArray objectAtIndex:cell.valueNumber];
+    [_label setValue:[cell.valueArray objectAtIndex:cell.valueNumber] forKey:cell.propertyLabel.text];
+    
 }
-
-//定义每个UICollectionView 的 margin
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsMake(5, 5, 5, 5);
-}
-
-#pragma mark --UICollectionViewDelegate
-
-//UICollectionView被选中时调用的方法
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    UICollectionViewCell * cell = (UICollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    //临时改变个颜色，看好，只是临时改变的。如果要永久改变，可以先改数据源，然后在cellForItemAtIndexPath中控制。（和UITableView差不多吧！O(∩_∩)O~）
-    cell.backgroundColor = [UIColor greenColor];
-    NSLog(@"item======%ld",(long)indexPath.item);
-    NSLog(@"row=======%ld",(long)indexPath.row);
-    NSLog(@"section===%ld",(long)indexPath.section);
-}
-
-//返回这个UICollectionView是否可以被选择
--(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
-
 @end
 

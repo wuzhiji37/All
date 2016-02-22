@@ -28,6 +28,8 @@
 
 #define SCREEN_WIDTH    ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT   ([UIScreen mainScreen].bounds.size.height)
+#define WIDTH(a)        ((a).bounds.size.width)
+#define HEIGHT(a)       ((a).bounds.size.height)
 
 #define USER_DEFAULT    [NSUserDefaults standardUserDefaults]
 

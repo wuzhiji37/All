@@ -10,6 +10,6 @@
 
 @interface ClassViewController_Basic : BasicViewController
 @property (nonatomic, strong) UIView      *objView;
-@property (nonatomic, strong) UICollectionView *objCV;
+@property (nonatomic, strong) UITableView *objTV;
 @property (nonatomic, strong) NSArray     *objArray;
 @end

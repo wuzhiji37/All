@@ -9,6 +9,7 @@
 #import "ClassViewController.h"
 
 #import "ClassViewController_UILabel.h"
+#import "ClassViewController_UIButton.h"
 @implementation ClassViewController {
     NSArray *classArray;
 }
