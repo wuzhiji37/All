@@ -1,24 +1,18 @@
 PODS:
-  - AFNetworking (2.6.3):
-    - AFNetworking/NSURLConnection (= 2.6.3)
-    - AFNetworking/NSURLSession (= 2.6.3)
-    - AFNetworking/Reachability (= 2.6.3)
-    - AFNetworking/Security (= 2.6.3)
-    - AFNetworking/Serialization (= 2.6.3)
-    - AFNetworking/UIKit (= 2.6.3)
-  - AFNetworking/NSURLConnection (2.6.3):
+  - AFNetworking (3.0.4):
+    - AFNetworking/NSURLSession (= 3.0.4)
+    - AFNetworking/Reachability (= 3.0.4)
+    - AFNetworking/Security (= 3.0.4)
+    - AFNetworking/Serialization (= 3.0.4)
+    - AFNetworking/UIKit (= 3.0.4)
+  - AFNetworking/NSURLSession (3.0.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.3):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.3)
-  - AFNetworking/Security (2.6.3)
-  - AFNetworking/Serialization (2.6.3)
-  - AFNetworking/UIKit (2.6.3):
-    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (3.0.4)
+  - AFNetworking/Security (3.0.4)
+  - AFNetworking/Serialization (3.0.4)
+  - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
   - GPUImage (0.1.7)
   - GVUserDefaults (1.0.2)
@@ -41,7 +35,7 @@ PODS:
   - SDWebImage/Core (3.7.5)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.0)
+  - AFNetworking (~> 3.0)
   - GPUImage
   - GVUserDefaults
   - Masonry
@@ -50,7 +44,7 @@ DEPENDENCIES:
   - SDWebImage
 
 SPEC CHECKSUMS:
-  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   GVUserDefaults: 52d48cf8ba578b40a1a76312b196dfc9134ba36a
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
@@ -59,6 +53,6 @@ SPEC CHECKSUMS:
   Result: dd3dd71af3fa2e262f1a999e14fba2c25ec14f16
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
 
-PODFILE CHECKSUM: 4667fe33837b3b15d9119c1173f134a7d4dcd69f
+PODFILE CHECKSUM: 2e4e2659a813e0be3c56b503ad8ce03c48c4f994
 
 COCOAPODS: 1.0.0.beta.3

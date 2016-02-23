@@ -16,6 +16,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.hidesBottomBarWhenPushed = NO;
         classArray = @[@"UILabel",
                       @"UIButton",
                       @"UISegmentedControl",
@@ -50,13 +51,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     WS;
+    self.title = @"Class";
     NSLog(@"ver = %@",@(IOS_VERSION));
-    _classTV = [[UITableView alloc] init];
-    _classTV.backgroundColor = [UIColor whiteColor];
-    _classTV.delegate = self;
-    _classTV.dataSource = self;
-    [self.view addSubview:_classTV];
-    [_classTV mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.classTV = [[UITableView alloc] init];
+    self.classTV.backgroundColor = [UIColor whiteColor];
+    self.classTV.delegate = self;
+    self.classTV.dataSource = self;
+    [self.view addSubview:self.classTV];
+    [self.classTV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(weakself.view).insets(UIEdgeInsetsMake(Bar_HEIGHT, 0, -TabBar_HEIGHT, 0));
     }];
 }

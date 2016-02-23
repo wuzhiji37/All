@@ -16,7 +16,6 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-
     }
     return self;
 }
@@ -38,7 +37,7 @@
     
     self.objTV.backgroundColor = [UIColor lightGrayColor];
     [self.objTV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.objView.mas_bottom).offset(10);
+        make.top.equalTo(weakself.objView.mas_bottom).offset(10);
         make.left.equalTo(weakself.view.mas_left).offset(10);
         make.right.equalTo(weakself.view.mas_right).offset(-10);
         make.bottom.equalTo(weakself.view.mas_bottom).offset(-10);

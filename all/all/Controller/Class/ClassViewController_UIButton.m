@@ -9,29 +9,64 @@
 #import "ClassViewController_UIButton.h"
 #import "ClassTableViewCell_Basic.h"
 @interface ClassViewController_UIButton ()
-
+{
+    UIButton *_button;
+}
 @end
 
 @implementation ClassViewController_UIButton
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    WS;
+    self.objArray = @[@{@"name":@"text",
+                        @"valueName":@[@"text1",
+                                       @"text2",
+                                       @"text3",
+                                       @"text4"],
+                        @"value":@[@"text1",
+                                   @"text2text2text2text2text2text2text2",
+                                   @"text3\ntext3\ntext3\ntext3\ntext3\ntext3",
+                                   @"text4 text4 text4 text4 text4 text4"]},];
+    _button = [[UIButton alloc] init];
+    [self.objView addSubview:_button];
+    _button.backgroundColor = [UIColor whiteColor];
+    [_button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(weakself.objView).insets(UIEdgeInsetsMake(10, 10, 10, 10));
+    }];
+    
+    self.objTV.delegate = self;
+    self.objTV.dataSource = self;
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - UITableView
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.objArray.count;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50;
 }
-*/
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *cellId = [@"ClassTableViewCell_UILabel" stringByAppendingFormat:@"%ld",(long)indexPath.row];
+    ClassTableViewCell_Basic *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (!cell) {
+        cell = [[ClassTableViewCell_Basic alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId size:CGSizeMake(WIDTH(tableView), 50)];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    NSDictionary *dic = [self.objArray objectAtIndex:indexPath.row];
+    cell.propertyLabel.text = [dic objectForKey:@"name"];
+    cell.valueNameArray = [dic objectForKey:@"valueName"];
+    cell.valueArray = [dic objectForKey:@"value"];
+    cell.valueLabel.text = [cell.valueNameArray objectAtIndex:cell.valueNumber];
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ClassTableViewCell_Basic *cell = (ClassTableViewCell_Basic *)[tableView cellForRowAtIndexPath:indexPath];
+    cell.valueNumber = (cell.valueNumber+1)%cell.valueArray.count;
+    cell.valueLabel.text = [cell.valueNameArray objectAtIndex:cell.valueNumber];
+    [_button setValue:[cell.valueArray objectAtIndex:cell.valueNumber] forKey:cell.propertyLabel.text];
+    
+}
 
 @end

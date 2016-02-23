@@ -21,7 +21,12 @@
     self.tbc = [[UITabBarController alloc] init];
     
     self.classNVC = [[ClassNavigationController alloc] init];
-    self.tbc.viewControllers = @[self.classNVC];
+    self.classNVC.tabBarItem.title = @"Class";
+    
+    self.steamNVC = [[SteamNavigationController alloc] init];
+    self.steamNVC.tabBarItem.title = @"Steam";
+    
+    self.tbc.viewControllers = @[self.classNVC, self.steamNVC];
     self.window.rootViewController = self.tbc;
     [self.window makeKeyAndVisible];
     return YES;

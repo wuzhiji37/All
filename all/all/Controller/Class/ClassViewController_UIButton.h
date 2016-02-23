@@ -6,7 +6,7 @@
 //  Copyright © 2016年 吴智极. All rights reserved.
 //
 
-#import "ClassNavigationController.h"
+#import "ClassViewController_Basic.h"
 
-@interface ClassViewController_UIButton : ClassNavigationController<UITableViewDelegate, UITableViewDataSource>
+@interface ClassViewController_UIButton : ClassViewController_Basic<UITableViewDelegate, UITableViewDataSource>
 @end

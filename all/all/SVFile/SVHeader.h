@@ -36,4 +36,11 @@
 
 
 #define FONT(n)         [UIFont systemFontOfSize:(n)]
+
+
+#define STEAM_APIKEY    @"21573F8C6E91E6DDA25BF893BEE05662"
+#define STEAM_ID_WZJ    @"76561198059360686"
+#define STEAM_ID_WZY    @"76561198070775508"
+#define STEAM_URL_NEWS  @"https://api.steampowered.com/ISteamNews"
+#define STEAM_URL_USER  @"https://api.steampowered.com/ISteamUser"
 #endif /* SVHeader_h */

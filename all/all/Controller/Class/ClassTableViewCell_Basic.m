@@ -36,27 +36,18 @@
     
     [self.propertyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakself.contentView.mas_left).offset(10);
-        make.right.equalTo(self.valueLabel.mas_left).offset(-10);
+        make.right.equalTo(weakself.valueLabel.mas_left).offset(-10);
         make.top.equalTo(weakself.contentView.mas_top);
         make.bottom.equalTo(weakself.contentView.mas_bottom);
-        make.width.equalTo(self.valueLabel);
+        make.width.equalTo(weakself.valueLabel);
     }];
     
     [self.valueLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.propertyLabel.mas_right).offset(10);
+        make.left.equalTo(weakself.propertyLabel.mas_right).offset(10);
         make.right.equalTo(weakself.contentView.mas_right).offset(-10);
         make.top.equalTo(weakself.contentView.mas_top);
         make.bottom.equalTo(weakself.contentView.mas_bottom);
     }];
-}
-- (void)updateConstraints {
-    [super updateConstraints];
-    NSLog(@"updateConstraints");
-}
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end
