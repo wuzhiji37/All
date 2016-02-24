@@ -14,11 +14,11 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.frame = CGRectMake(0, 0, size.width, size.height);
-        [self loadView];
+        [self loadViews];
     }
     return self;
 }
-- (void)loadView {
+- (void)loadViews {
     WS;
     self.backgroundColor = [UIColor lightGrayColor];
     self.contentView.backgroundColor = [UIColor whiteColor];

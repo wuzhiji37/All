@@ -46,7 +46,7 @@
 }
 #pragma mark - UITableView 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.newsArray?self.newsArray.count:0;
+    return self.newsArray.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 100;
@@ -59,25 +59,15 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSDictionary *dic = [self.newsArray objectAtIndex:indexPath.row];
-    if (indexPath.row==0) {
-        NSLog(@"dic = %@",dic);
-    }
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"YYYY/MM/DD\nhh:mm:ss"];
-    cell.timeLabel.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"date"] integerValue]]]];
+    cell.timeLabel.text = [NSDate dateStrWithUnixTimeTwoLine:[dic objectForKey:@"date"]];
     cell.authorLabel.text = [NSString stringWithFormat:@"%@ - %@",[dic objectForKey:@"author"],[dic objectForKey:@"feedlabel"]];
     cell.titleLabel.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"title"]];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dic = [self.newsArray objectAtIndex:indexPath.row];
-    
     WebViewController *webVC = [[WebViewController alloc] initWithHTMLString:[NSString stringWithFormat:@"%@", [dic objectForKey:@"contents"]]];
     [self.navigationController pushViewController:webVC animated:YES];
 }
 
-- (void)buttonClick:(UIButton *)btn {
-    [btn removeFromSuperview];
-}
 @end

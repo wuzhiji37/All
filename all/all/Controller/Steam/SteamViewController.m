@@ -17,7 +17,8 @@
     if (self) {
         self.hidesBottomBarWhenPushed = NO;
         steamArray = @[@"GetNewsForApp",
-                       @"GetPlayerSummaries"];
+                       @"GetPlayerSummaries",
+                       @"GetFriendList"];
     }
     return self;
 }

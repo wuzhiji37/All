@@ -9,6 +9,7 @@
 #ifndef SVHeader_h
 #define SVHeader_h
 
+#import "NSDate+SVExtra.h"
 // MACRO
 #define NSLog(format, ...) do { \
                             fprintf(stderr, "<%s.%d> %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, __func__); \
@@ -36,7 +37,7 @@
 
 
 #define FONT(n)         [UIFont systemFontOfSize:(n)]
-
+#define URL(string)     [NSURL URLWithString:[[NSString stringWithFormat:@"%@",string] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]]]
 
 #define STEAM_APIKEY    @"21573F8C6E91E6DDA25BF893BEE05662"
 #define STEAM_ID_WZJ    @"76561198059360686"
