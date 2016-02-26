@@ -11,4 +11,6 @@
 @interface SteamViewController_GetFriendList : BasicViewController <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *friendTV;
 @property (nonatomic, strong) NSMutableArray *friendArray;
+@property (nonatomic, strong) NSMutableArray *friendArray_Online;
+@property (nonatomic) BOOL online;
 @end

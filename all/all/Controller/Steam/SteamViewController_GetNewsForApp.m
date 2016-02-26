@@ -15,7 +15,7 @@
     [super viewDidLoad];
     WS;
     self.title = @"Steam新闻 - Dota 2";
-    self.newsArray = @[];
+    self.newsArray = [NSArray array];
     self.newsTV = [[UITableView alloc] init];
     self.newsTV.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.newsTV];

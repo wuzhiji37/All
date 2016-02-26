@@ -14,6 +14,9 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
+  - FMDB (2.6):
+    - FMDB/standard (= 2.6)
+  - FMDB/standard (2.6)
   - GPUImage (0.1.7)
   - GVUserDefaults (1.0.2)
   - Masonry (0.6.4)
@@ -36,6 +39,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - FMDB
   - GPUImage
   - GVUserDefaults
   - Masonry
@@ -45,6 +49,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  FMDB: c1968bab3ab0aed38f66cb778ae1e7fa9a652b6e
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   GVUserDefaults: 52d48cf8ba578b40a1a76312b196dfc9134ba36a
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
@@ -53,6 +58,6 @@ SPEC CHECKSUMS:
   Result: dd3dd71af3fa2e262f1a999e14fba2c25ec14f16
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
 
-PODFILE CHECKSUM: 2e4e2659a813e0be3c56b503ad8ce03c48c4f994
+PODFILE CHECKSUM: ab20195c5f852a53abb803a9ec72bda87b446e51
 
 COCOAPODS: 1.0.0.beta.3

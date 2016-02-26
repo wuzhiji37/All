@@ -39,9 +39,24 @@
 #define FONT(n)         [UIFont systemFontOfSize:(n)]
 #define URL(string)     [NSURL URLWithString:[[NSString stringWithFormat:@"%@",string] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]]]
 
-#define STEAM_APIKEY    @"21573F8C6E91E6DDA25BF893BEE05662"
-#define STEAM_ID_WZJ    @"76561198059360686"
-#define STEAM_ID_WZY    @"76561198070775508"
-#define STEAM_URL_NEWS  @"https://api.steampowered.com/ISteamNews"
-#define STEAM_URL_USER  @"https://api.steampowered.com/ISteamUser"
+#define STEAM_APIKEY        @"21573F8C6E91E6DDA25BF893BEE05662"
+#define STEAM_ID_WZJ        @"76561198059360686"
+#define STEAM_ID_WZY        @"76561198070775508"
+#define STEAM_URL_NEWS      @"https://api.steampowered.com/ISteamNews"
+#define STEAM_URL_USER      @"https://api.steampowered.com/ISteamUser"
+#define STEAM_URL_SERVICE   @"https://api.steampowered.com/IPlayerService"
+#define STEAM_URL_APPS      @"https://api.steampowered.com/ISteamApps"
+#define STEAM_URL_IMAGE     @"http://media.steampowered.com/steamcommunity/public/images/apps"
+
+
+//database
+#define TABLE_STEAMAPP      @"Table_SteamApp"
+#define PROPERTY_APPID      @"appid"
+#define PROPERTY_APPNAME    @"appname"
+
+#define FILE_PATH           NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)
+#define DOCUMENT_PATH       FILE_PATH.firstObject
+//G－C－D
+#define GCD_BACK(block)     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)
+#define GCD_MAIN(block)     dispatch_async(dispatch_get_main_queue(),block)
 #endif /* SVHeader_h */

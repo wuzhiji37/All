@@ -52,29 +52,26 @@
     [self.contentView addSubview:self.timeLabel];
     
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakself.avatarIV.mas_top);
+        make.top.equalTo(weakself.avatarIV);
         make.left.equalTo(weakself.avatarIV.mas_right).offset(5);
-        make.right.equalTo(weakself.contentView.mas_right).offset(-5);
         
         make.height.equalTo(@[weakself.personastateLabel, weakself.timeLabel]);
+        make.width.equalTo(weakself.timeLabel);
+    }];
+    
+    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakself.avatarIV);
+        make.left.equalTo(weakself.nameLabel.mas_right).offset(5);
+        make.right.equalTo(weakself.contentView).offset(-5);
     }];
     
     [self.personastateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakself.nameLabel.mas_bottom).offset(5);
         make.left.equalTo(weakself.nameLabel);
         make.bottom.equalTo(weakself.contentView.mas_bottom).offset(-5);
-        
-        make.top.equalTo(weakself.timeLabel);
-        make.width.equalTo(weakself.timeLabel);
+        make.right.equalTo(weakself.contentView).offset(-5);
     }];
     
-    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.left.equalTo(weakself.personastateLabel.mas_right).offset(5);
-        make.right.equalTo(weakself.nameLabel);
-    }];
-    self.nameLabel.text = @"123";
-    self.personastateLabel.text = @"1234";
-    self.timeLabel.text = @"12345";
+    
 }
 @end

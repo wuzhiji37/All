@@ -12,6 +12,7 @@
 @property (nonatomic, strong) NSString *steamId;
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) NSDictionary *playerDic;
+@property (nonatomic, strong) NSDictionary *banDic;
 //Public Data
 @property (nonatomic, strong) UIImageView *avatarfullIV;
 @property (nonatomic, strong) UIImageView *avatarmediumIV;
@@ -33,4 +34,11 @@
 @property (nonatomic, strong) UILabel *loccountrycodeLabel;
 @property (nonatomic, strong) UILabel *locstatecodeLabel;
 @property (nonatomic, strong) UILabel *loccityidLabel;
+//Ban Data
+@property (nonatomic, strong) UILabel *communityBannedLabel;
+@property (nonatomic, strong) UILabel *VACBannedLaebl;
+@property (nonatomic, strong) UILabel *numberOfVACBansLabel;
+@property (nonatomic, strong) UILabel *daysSinceLastBanLabel;
+@property (nonatomic, strong) UILabel *numberOfGameBansLabel;
+@property (nonatomic, strong) UILabel *economyBanLabel;
 @end

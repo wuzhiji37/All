@@ -17,6 +17,8 @@
 @property (strong, nonatomic          ) UITabBarController           *tbc;
 @property (strong, nonatomic          ) ClassNavigationController    *classNVC;
 @property (strong, nonatomic          ) SteamNavigationController    *steamNVC;
+
+@property (strong, nonatomic          ) SVSteam                      *steam;
 @property (readonly, strong, nonatomic) NSManagedObjectContext       *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel         *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;

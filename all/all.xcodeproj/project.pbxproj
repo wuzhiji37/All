@@ -31,6 +31,9 @@
 		E39E9CE61C7C0D1F0032C666 /* SteamViewController_GetNewsForApp.m in Sources */ = {isa = PBXBuildFile; fileRef = E39E9CE51C7C0D1F0032C666 /* SteamViewController_GetNewsForApp.m */; };
 		E39E9CED1C7C38E10032C666 /* SteamTableViewCell_GetNewsForApp.m in Sources */ = {isa = PBXBuildFile; fileRef = E39E9CEB1C7C38E10032C666 /* SteamTableViewCell_GetNewsForApp.m */; };
 		E3A8C5DF1C7571FB000B6FE9 /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A8C5DE1C7571FB000B6FE9 /* BasicViewController.m */; };
+		E3BB27981C7EDB8100A99B2B /* SteamViewController_GetOwnedGames.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BB27971C7EDB8100A99B2B /* SteamViewController_GetOwnedGames.m */; };
+		E3BB279B1C7EDCA200A99B2B /* SteamTableViewCell_GetOwnedGames.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BB279A1C7EDCA200A99B2B /* SteamTableViewCell_GetOwnedGames.m */; };
+		E3BEDB511C7FF6F0008F1012 /* SVSteam.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BEDB501C7FF6F0008F1012 /* SVSteam.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +104,12 @@
 		E3A8C5DD1C7571FB000B6FE9 /* BasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicViewController.h; sourceTree = "<group>"; };
 		E3A8C5DE1C7571FB000B6FE9 /* BasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicViewController.m; sourceTree = "<group>"; };
 		E3A8C5E31C7573D8000B6FE9 /* AllPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllPrefixHeader.pch; sourceTree = "<group>"; };
+		E3BB27961C7EDB8100A99B2B /* SteamViewController_GetOwnedGames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SteamViewController_GetOwnedGames.h; sourceTree = "<group>"; };
+		E3BB27971C7EDB8100A99B2B /* SteamViewController_GetOwnedGames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SteamViewController_GetOwnedGames.m; sourceTree = "<group>"; };
+		E3BB27991C7EDCA200A99B2B /* SteamTableViewCell_GetOwnedGames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SteamTableViewCell_GetOwnedGames.h; sourceTree = "<group>"; };
+		E3BB279A1C7EDCA200A99B2B /* SteamTableViewCell_GetOwnedGames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SteamTableViewCell_GetOwnedGames.m; sourceTree = "<group>"; };
+		E3BEDB4F1C7FF6F0008F1012 /* SVSteam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVSteam.h; sourceTree = "<group>"; };
+		E3BEDB501C7FF6F0008F1012 /* SVSteam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSteam.m; sourceTree = "<group>"; };
 		FB811A6ADCB60542724DC151 /* Pods_all.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_all.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -172,10 +181,10 @@
 		E334F2161C72C4D400C79F31 /* all */ = {
 			isa = PBXGroup;
 			children = (
-				E35D79CD1C731206008E731F /* SVFile */,
-				E3A8C5D31C7567D2000B6FE9 /* Controller */,
 				E334F21A1C72C4D400C79F31 /* AppDelegate.h */,
 				E334F21B1C72C4D400C79F31 /* AppDelegate.m */,
+				E35D79CD1C731206008E731F /* SVFile */,
+				E3A8C5D31C7567D2000B6FE9 /* Controller */,
 				E334F2261C72C4D400C79F31 /* Assets.xcassets */,
 				E334F2281C72C4D400C79F31 /* LaunchScreen.storyboard */,
 				E334F22B1C72C4D400C79F31 /* Info.plist */,
@@ -218,6 +227,8 @@
 				E35D79CE1C731222008E731F /* SVHeader.h */,
 				E311001D1C7D8B4800E32C93 /* NSDate+SVExtra.h */,
 				E311001E1C7D8B4800E32C93 /* NSDate+SVExtra.m */,
+				E3BEDB4F1C7FF6F0008F1012 /* SVSteam.h */,
+				E3BEDB501C7FF6F0008F1012 /* SVSteam.m */,
 			);
 			path = SVFile;
 			sourceTree = "<group>";
@@ -258,6 +269,10 @@
 				E31100211C7D9F5C00E32C93 /* SteamViewController_GetFriendList.m */,
 				E31100231C7DA5B600E32C93 /* SteamTableViewCell_GetFriendList.h */,
 				E31100241C7DA5B600E32C93 /* SteamTableViewCell_GetFriendList.m */,
+				E3BB27961C7EDB8100A99B2B /* SteamViewController_GetOwnedGames.h */,
+				E3BB27971C7EDB8100A99B2B /* SteamViewController_GetOwnedGames.m */,
+				E3BB27991C7EDCA200A99B2B /* SteamTableViewCell_GetOwnedGames.h */,
+				E3BB279A1C7EDCA200A99B2B /* SteamTableViewCell_GetOwnedGames.m */,
 			);
 			path = Steam;
 			sourceTree = "<group>";
@@ -465,14 +480,17 @@
 				E334F21C1C72C4D400C79F31 /* AppDelegate.m in Sources */,
 				E340C45F1C7B035200B58F98 /* ClassViewController_UIButton.m in Sources */,
 				E39E9CE31C7C0AED0032C666 /* SteamNavigationController.m in Sources */,
+				E3BB279B1C7EDCA200A99B2B /* SteamTableViewCell_GetOwnedGames.m in Sources */,
 				E3A8C5DF1C7571FB000B6FE9 /* BasicViewController.m in Sources */,
 				E36898DB1C75D5A100562999 /* ClassViewController_Basic.m in Sources */,
+				E3BEDB511C7FF6F0008F1012 /* SVSteam.m in Sources */,
 				E334F2191C72C4D400C79F31 /* main.m in Sources */,
 				E31100251C7DA5B600E32C93 /* SteamTableViewCell_GetFriendList.m in Sources */,
 				E38146E41C7AAD8E0032153C /* ClassTableViewCell_Basic.m in Sources */,
 				E39E9CE61C7C0D1F0032C666 /* SteamViewController_GetNewsForApp.m in Sources */,
 				E36898D81C75C90800562999 /* ClassViewController_UILabel.m in Sources */,
 				E36898D21C75C82E00562999 /* ClassViewController.m in Sources */,
+				E3BB27981C7EDB8100A99B2B /* SteamViewController_GetOwnedGames.m in Sources */,
 				E311001F1C7D8B4800E32C93 /* NSDate+SVExtra.m in Sources */,
 				E36881051C7C63EB007C41FB /* SteamViewController_GetPlayerSummaries.m in Sources */,
 				E39E9CE01C7C0A8A0032C666 /* SteamViewController.m in Sources */,

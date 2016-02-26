@@ -9,6 +9,6 @@ target 'all' do
     pod "GPUImage"
     pod "MBProgressHUD"
     pod "GVUserDefaults"
-    
+    pod "FMDB"
 end
 
