@@ -10,6 +10,6 @@
 
 @interface SVSteam : NSObject
 + (SVSteam *)shareInstance;
-- (void)doGetAppList;
-@property (nonatomic, strong) NSArray *appArray;
+@property (nonatomic, strong) NSArray       *appArray;
+@property (nonatomic, strong) FMDatabase    *steamDB;
 @end

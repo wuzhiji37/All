@@ -17,6 +17,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    if(!IS_FIRSTSTART){
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstStart"];
+        NSLog(@"第一次启动");
+    }else{
+        NSLog(@"不是第一次启动");
+    }
     [self doSteamInit];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.tbc = [[UITabBarController alloc] init];
@@ -34,7 +40,6 @@
 }
 - (void)doSteamInit {
     self.steam = [SVSteam shareInstance];
-    [self.steam doGetAppList];
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

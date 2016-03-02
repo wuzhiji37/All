@@ -15,8 +15,47 @@
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         instance = [[self alloc] init];
+        
     });
     return instance;
+}
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.steamDB = [[SVDataBase manager] getDataBaseWithName:@"steam"];
+//        [[SVDataBase manager] dataBase:self.steamDB
+//                           deleteTable:TABLE_STEAM_APP];
+//        [[SVDataBase manager] dataBase:self.steamDB
+//                           deleteTable:TABLE_STEAM_UPDATE];
+        
+        if (IS_FIRSTSTART) {
+            [[SVDataBase manager] dataBase:self.steamDB
+                               createTable:TABLE_STEAM_APP
+                              keysAndTypes:KEYTYPE_STEAM_APP
+                               primaryKeys:@[PROPERTY_APPID]];
+            [[SVDataBase manager] dataBase:self.steamDB
+                               createTable:TABLE_STEAM_UPDATE
+                              keysAndTypes:KEYTYPE_STEAM_UPDATE
+                               primaryKeys:@[PROPERTY_TABLENAME]];
+        }
+        [self doSteamUpdate];
+        //[self doGetAppList];
+    }
+    return self;
+}
+- (void)doSteamUpdate {
+    [[SVDataBase manager] dataBase:self.steamDB
+                       selectTable:TABLE_SQLITE_MASTER
+                      keysAndTypes:nil];
+//    for (NSString *tableName in [) {
+//        <#statements#>
+//    }
+    [[SVDataBase manager] dataBase:self.steamDB
+                       insertTable:TABLE_STEAM_UPDATE
+                     keysAndValues:KEYVALUE_STEAM_UPDATE(TABLE_STEAM_APP, @0)];
+    [[SVDataBase manager] dataBase:self.steamDB
+                       selectTable:TABLE_STEAM_UPDATE
+                      keysAndTypes:KEYTYPE_STEAM_UPDATE];
 }
 - (void)doGetAppList {
     NSString *path = [NSString stringWithFormat:@"%@/GetAppList/v2/?format=json", STEAM_URL_APPS];
@@ -30,46 +69,18 @@
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              NSDictionary *dic = [[NSDictionary alloc] initWithDictionary:responseObject];
              self.appArray = [[dic objectForKey:@"applist"] objectForKey:@"apps"];
-             NSLog(@"self.appArray = %lu",(unsigned long)self.appArray.count);
+             NSLog(@"self.appArray.count = %lu",(unsigned long)self.appArray.count);
              GCD_BACK((^{
-                 NSString *SteamDBPath = [DOCUMENT_PATH stringByAppendingPathComponent:@"steam.sqlite"];
-                 FMDatabase *SteamDB = [FMDatabase databaseWithPath:SteamDBPath];
-                 SteamDB.shouldCacheStatements = YES;
-                 if ([SteamDB open]) {
-                     BOOL drop_res = [SteamDB executeUpdate:[NSString stringWithFormat:@"DROP TABLE %@", TABLE_STEAMAPP]];
-                     NSLog(@"drop_res = %@",drop_res?@"YES":@"NO");
-                     BOOL create_res = [SteamDB executeUpdate:[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' ('%@' INTEGER PRIMARY KEY, '%@' TEXT)", TABLE_STEAMAPP, PROPERTY_APPID, PROPERTY_APPNAME]];
-                     if (create_res) {
-                         NSLog(@"success to creating db table");
-                         for (int i = 0; i<self.appArray.count; i+=1) {
-                             NSDictionary *tDic = [self.appArray objectAtIndex:i];
-                             NSNumber *appid = [tDic objectForKey:@"appid"];
-                             NSString *appname = [[NSString stringWithFormat:@"%@",[tDic objectForKey:@"name"]] stringByReplacingOccurrencesOfString:@"\'" withString:@"\""];
-                             BOOL insert_res = [SteamDB executeUpdate:@"INSERT INTO Table_SteamApp VALUES (?, ?)", appid, appname];
-                         }
-                         NSLog(@"1");
-                         
-                         //                     GCD_BACK((^{
-                         //                         for (int i = 1; i<self.appArray.count; i+=2) {
-                         //                             NSDictionary *tDic = [self.appArray objectAtIndex:i];
-                         //                             int appid = [[tDic objectForKey:@"appid"] intValue];
-                         //                             NSString *appname = [[NSString stringWithFormat:@"%@",[tDic objectForKey:@"name"]] stringByReplacingOccurrencesOfString:@"\'" withString:@"\""];
-                         //                             BOOL insert_res = [SteamDB executeUpdate:[NSString stringWithFormat:@"INSERT INTO '%@' ('%@', '%@') VALUES ('%d', '%@')", TABLE_STEAMAPP, PROPERTY_APPID, PROPERTY_APPNAME, appid, appname]];
-                         //                             //                             NSLog(@"insert_res %@, %d", insert_res?@"OK":@"NO", appid);
-                         //                         }
-                         //                         NSLog(@"2");
-                         ////                         FMResultSet *select_res = [SteamDB executeQuery:[NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@ < 100", TABLE_STEAMAPP, PROPERTY_APPID]];
-                         ////                         while ([select_res next]) {
-                         ////                             NSLog(@"RS = %d %@", [select_res intForColumn:PROPERTY_APPID], [select_res stringForColumn:PROPERTY_APPNAME]);
-                         ////                         }
-                         //                     }));
-                         [SteamDB close];
-                     } else {
-                         NSLog(@"error when creating db table");
-                     }
-                 } else {
-                     NSLog(@"ERROR");
+                 for (int i = 0; i<self.appArray.count; i++) {
+                     NSDictionary *tDic = [self.appArray objectAtIndex:i];
+                     NSNumber *appid = [tDic objectForKey:@"appid"];
+                     NSString *appname = [NSString stringWithFormat:@"%@",[tDic objectForKey:@"name"]];
+                     [[SVDataBase manager] dataBase:self.steamDB
+                                        insertTable:TABLE_STEAM_APP
+                                      keysAndValues:KEYVALUE_STEAM_APP(appid, appname)];
                  }
+                 
+                 SVLog(DOCUMENT_PATH);
              }));
              
              
